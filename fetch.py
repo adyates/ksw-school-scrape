@@ -1,7 +1,7 @@
 import csv
 import re
 
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
 import phonenumbers as libphone
 import requests
 
@@ -9,14 +9,14 @@ import requests
 def pullUsaDirectoryInfo():
     KSW_DIRECTORY_PAGE = 'http://www.kuksoolwon.com/site/schools/u.s.a.'
     KSW_REGIONS = 4
-    
+
     school_list = []
     for geo_id in xrange(1, KSW_REGIONS + 1):
         r = requests.post(KSW_DIRECTORY_PAGE, data={'geo_id': geo_id})
         usa_page = BeautifulSoup(r.text, 'lxml')
         subpage = usa_page.select('div.schools_content > div')
-        
-        ksw_region = '' # For the US, this is the state as displayed on the leftmost column
+
+        ksw_region = ''  # For the US, this is the state as displayed on the leftmost column
         print 'Found %s schools' % len(subpage)
         for section in subpage:
             # Determine if this is a region header or a school
@@ -42,10 +42,10 @@ def separatePhoneNumbers(school_list):
             school['phone_numbers'].append(
                 str(libphone.format_number(match.number, libphone.PhoneNumberFormat.NATIONAL)))
             phone_index_min = min(phone_index_min, match.start)
-            
+
         # Reformat the phone numbers to be semi-colon delimited, if present
         school['phone_numbers'] = ';'.join(school['phone_numbers'])
-        
+
         # Remove the phone numbers from the address.  Go by section because multiple numbers get
         # are not represented uniformly (e.g. Palmdale, CA)
         school['address'] = school['address'][:phone_index_min].strip()
@@ -56,15 +56,15 @@ def exportCSV(school_list):
         writer = csv.DictWriter(csvout, [
                 'city', 'region', 'address', 'phone_numbers', 'instructor'
             ], lineterminator='\n')
-        
+
         header = {
             'region': 'Region',
-            'city': 'City', 
+            'city': 'City',
             'address': 'Address',
-            'phone_numbers':'Phone #s', 
+            'phone_numbers':'Phone #s',
             'instructor': 'Instructor'
         }
-        
+
         writer.writerow(header)
         for school in school_list:
             writer.writerow(school)
