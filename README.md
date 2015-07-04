@@ -5,7 +5,7 @@ Script to scrape, standardize, and export the school owner data off of the
 [KSW](www.kuksoolwon.com/site/schools) website for later mashup.
 
 If you are an intrepid person planning on using this, re-run locally, using any noted API keys.
-Reusing the CSV from this project directly is a terrible idea for data staleness reasons.
+
 
 ## Long version
 Part of a project to determine, from a given city, what the nearest school location should be

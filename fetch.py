@@ -17,7 +17,7 @@ def pullUsaDirectoryInfo():
         subpage = usa_page.select('div.schools_content > div')
 
         ksw_region = ''  # For the US, this is the state as displayed on the leftmost column
-        print 'Found %s schools' % len(subpage)
+        print 'Found %s schools for US Geo ID %s' % (len(subpage), geo_id)
         for section in subpage:
             # Determine if this is a region header or a school
             if 'region_name' in section['class']:
@@ -52,7 +52,7 @@ def separatePhoneNumbers(school_list):
 
 
 def exportCSV(school_list):
-    with open('school_data.csv', 'wb') as csvout:
+    with open('data/school_data.csv', 'wb') as csvout:
         writer = csv.DictWriter(csvout, [
                 'city', 'region', 'address', 'phone_numbers', 'instructor'
             ], lineterminator='\n')
