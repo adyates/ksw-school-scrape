@@ -14,13 +14,13 @@ GOOGLE_STATIC_MAPS_ENDPOINT = (
 #        1 - Sign character
 #        3 - Max number of digits used by integer part
 #        1 - Decimal
-#        7 - Max number of digits used by fractional part (Est. based on points used) 
+#        7 - Max number of digits used by fractional part (Est. based on points used)
 MAX_EST_MARKER_COUNT = (2048 - len(GOOGLE_STATIC_MAPS_ENDPOINT)) / (
     len(urllib2.quote(',|')) + 2 * (1 + 3 + 1 + 7))
 
 
 def exportMapsUrls():
-    
+
     marker_data = [[]]  # Generate a sanity-check list of Google Static Map urls
     with open(geocoder.SCHOOL_GEODATA_FILE, 'rb') as csv_in:
         school_data = csv.DictReader(csv_in)
@@ -31,7 +31,7 @@ def exportMapsUrls():
 
     for marker_list in marker_data:
         map_url = GOOGLE_STATIC_MAPS_ENDPOINT + '|'.join(marker_list)
-        
+
         # Verify they will load in a pretty way
         webbrowser.open_new_tab(map_url)
 

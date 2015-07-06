@@ -71,7 +71,8 @@ def loadSchoolData():
             # Fetch the address first.  If it fails, switch to city+state
             geodata = (
                 item['Address'] and _handleResponse(geocode_api.get(address=item['Address'])) or
-                _handleResponse(geocode_api.get(address=('%s, %s' % (item['City'], item['Region'])))))
+                _handleResponse(geocode_api.get(
+                    address=('%s, %s' % (item['City'], item['Region'])))))
             location = geodata['location']
 
             item.update({
