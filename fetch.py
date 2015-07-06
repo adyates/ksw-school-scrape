@@ -6,6 +6,9 @@ import phonenumbers as libphone
 import requests
 
 
+SCHOOL_EXPORT_FILE = 'data/school_data.csv' 
+
+
 def pullUsaDirectoryInfo():
     KSW_DIRECTORY_PAGE = 'http://www.kuksoolwon.com/site/schools/u.s.a.'
     KSW_REGIONS = 4
@@ -52,7 +55,7 @@ def separatePhoneNumbers(school_list):
 
 
 def exportCSV(school_list):
-    with open('data/school_data.csv', 'wb') as csvout:
+    with open(SCHOOL_EXPORT_FILE, 'wb') as csvout:
         writer = csv.DictWriter(csvout, [
                 'city', 'region', 'address', 'phone_numbers', 'instructor'
             ], lineterminator='\n')

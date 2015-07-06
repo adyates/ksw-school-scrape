@@ -3,14 +3,15 @@ import time
 
 import requests
 
+import fetch
+
 
 GOOGLE_GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json'
-GOOGLE_STATIC_MAPS_ENDPOINT = (
-    'https://maps.googleapis.com/maps/api/staticmap?size=1280x720&markers=%s')
+SCHOOL_GEODATA_FILE = 'data/school_geodata.csv'
 
 
 def exportGeoData(school_list):
-    with open('data/school_geodata.csv', 'wb') as csvout:
+    with open(SCHOOL_GEODATA_FILE, 'wb') as csvout:
         writer = csv.DictWriter(csvout, [
             # Note that these are equivalent to the headers because of DictReader.fieldnames
                 'City', 'Region', 'Address', 'Phone #s', 'Instructor', 'lat', 'lon', 'type'
@@ -30,12 +31,6 @@ def exportGeoData(school_list):
         writer.writerow(header)
         for school in school_list:
             writer.writerow(school)
-
-
-def exportMapsUrls(marker_data):
-    for marker_list in marker_data:
-        q = GOOGLE_STATIC_MAPS_ENDPOINT % '|'.join(marker_list)
-        print q
 
 
 class LimitedApiManager(object):
@@ -60,11 +55,10 @@ def loadSchoolData():
 
     geocode_api = LimitedApiManager(GOOGLE_GEOCODE_ENDPOINT, 5, 1)
 
-    with open('data/school_data.csv', 'rb') as csv_in:
+    with open(fetch.SCHOOL_EXPORT_FILE, 'rb') as csv_in:
         school_data = csv.DictReader(csv_in)
 
         school_list = []  # Save each row for later re-write
-        marker_data = [[]]  # Generate a sanity-check list of Google Static Map urls
         for item in school_data:
             def _handleResponse(response):
                 json = response.json()
@@ -85,15 +79,9 @@ def loadSchoolData():
                 'lon': location['lng'],
                 'type': geodata['location_type']
             })
-
             school_list.append(item)
-            if len(marker_data[-1]) >= 100:
-                # The Static Map API has a 2K char limit on URLs.  100 points per map is reasonable
-                marker_data.append([])
-            marker_data[-1].append('%s,%s' % (location['lat'], location['lng']))
 
         exportGeoData(school_list)
-        exportMapsUrls(marker_data)
 
 
 if __name__ == '__main__':
