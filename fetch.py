@@ -6,7 +6,7 @@ import phonenumbers as libphone
 import requests
 
 
-SCHOOL_EXPORT_FILE = 'data/school_data.csv' 
+SCHOOL_EXPORT_FILE = 'data/school_data.csv'
 
 
 def pullUsaDirectoryInfo():
@@ -20,11 +20,14 @@ def pullUsaDirectoryInfo():
         subpage = usa_page.select('div.schools_content > div')
 
         ksw_region = ''  # For the US, this is the state as displayed on the leftmost column
-        print 'Found %s schools for US Geo ID %s' % (len(subpage), geo_id)
+        print 'Found %s lines for US Geo ID %s' % (len(subpage), geo_id)
+        num_regions = 0
+        num_schools = len(school_list)
         for section in subpage:
             # Determine if this is a region header or a school
             if 'region_name' in section['class']:
                 ksw_region = section.get_text().capitalize()
+                num_regions += 1
             else:
                 school_list.append({
                     'region': ksw_region.strip(),
@@ -35,6 +38,7 @@ def pullUsaDirectoryInfo():
                     'phone_numbers': [],
                     'instructor': section.select_one('div.instructor').get_text().strip()
                 })
+        print '  ===> %s schools across %s regions' % (len(school_list) - num_schools, num_regions)
     return school_list
 
 
