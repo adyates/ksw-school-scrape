@@ -1,0 +1,116 @@
+City,Region,Address,Phone #s,Instructor,Latitude,Longitude,Geocode Type
+Champaign,Illinois,"University of Illinois 201 E. Peabody Champaign, IL",(309) 221-2653,Inst. Clayton Hickerson,40.1007672,-88.23603399999999,ROOFTOP
+Crystal Lake,Illinois,"Mc Henry County College 8900 US Hwy 14 Crystal Lke, IL 60012",(847) 962-8600,PKJN Tim Seitz,42.2591096,-88.3687126,ROOFTOP
+Galesburg,Illinois,"415 East Main Street Galesburg, IL 61401",(309) 342-6222,JDKJN Ed Sanchez,40.947592,-90.3643311,ROOFTOP
+Gurnee,Illinois,4628 Old Grand Ave Gurnee. IL 60031,(847) 962-8600,PKJN Tim Seitz,42.3712876,-87.9175909,RANGE_INTERPOLATED
+Knoxville,Illinois,"220 West Side Public Square Knoxville, Il 61448",(309) 289-9757,Inst. Joshua Smith,40.9083715,-90.28484759999999,APPROXIMATE
+Monmouth,Illinois,"NEW!!! 120 East Euclid Avenue Monmouth, IL 61462",(309) 335-5697,Inst. Randy Timmerman,40.9174656,-90.6471098,ROOFTOP
+Pekin,Illinois,"1530 N. 8th Street off Route 29 Pekin, IL 61554",(309) 346-3466,Inst. Michael Yates,40.5986511,-89.6380361,ROOFTOP
+Peoria,Illinois,"5221 N. Big Hollow Road Peoria, IL 61615",(309) 692-0144,PKJN Ben Mitchell,40.7513381,-89.6366572,ROOFTOP
+Washington,Illinois,"NEW!! 1227 Peoria Street Washington, IL 61571",(309) 292-7101,Inst. Troi Westbrook,40.70333309999999,-89.4260867,ROOFTOP
+Connersville,Indiana,"3542 Western Ave Connersville, IN 47331",(765) 993-8315,Inst.Benjamin Klein,39.67671,-85.137948,ROOFTOP
+Muncie,Indiana,"2190 West White River Bend Blvd. Suite B Muncie, IN 47303",(765) 212-2591,Inst. Ken Ring,40.1869376,-85.4113935,ROOFTOP
+Richmond,Indiana,"2023 Chester Blvd (YMCA) Richmond, IN 47374",(765) 969-3334,PKJN Gary Phillips,39.815155,-84.88579179999999,ROOFTOP
+Bettendorf,Iowa,"1018 Spruce Hills Dr Bettendorf, IA 52722",(563) 505-5289,JIKJN Jeff Green,41.5547403,-90.51666349999999,ROOFTOP
+Le Claire,Iowa,"427 North 3rd Street Le Claire, IA 52753",(563) 505-5289,JIKJN Jeff Green,41.6013233,-90.3467074,ROOFTOP
+Burton,Michigan,"5515 Davison Rd #7 Burton, MI 48509",(810) 908-2659,PKJN Ken Wright,43.034365,-83.59671469999999,ROOFTOP
+Madison Heights,Michigan,"26751 John Road Madison Heights, MI 48071",(248) 291-7157,Inst. Gehrik Mohr,42.4897196,-83.1054939,ROOFTOP
+Sault Ste. Marie,Michigan,"1200 Ryan Street Sault Ste. Marie, MI 49783",(906) 630-1929,JIKJN Karl Stolt,46.4900404,-84.3595776,ROOFTOP
+Spring Lake,Michigan,"14700 State Rd Springlake, MI 49456",(616) 795-3048,Inst. Sam Ferrell,43.0863101,-86.15307729999999,ROOFTOP
+St. Paul,Minnesota,"800 Transfer Road #34 St. Paul, MN 55104",(651) 645-1455,PKJN. Steffen Kellogg,44.9651852,-93.18500399999999,ROOFTOP
+Brentwood,Missouri,"Brentwood Rec. Center 2505 S. Brentwood Blvd.  Brentwood, MO 63144",(636) 928-0035,JIKJN Lee Harvey,38.6161185,-90.34984299999999,ROOFTOP
+O' Fallon,Missouri,"929 N. Main St. O' Fallon, MO 63366",(636) 978-5425,PKJN. Kelly  Fleites,38.82086049999999,-90.7002552,ROOFTOP
+St. Louis,Missouri,"#1 East Sutters Mill Road St. Peters, MO 63376",(636) 928-0035,JDKJN Jack Harvey,38.7791114,-90.5774812,ROOFTOP
+Cleveland,Ohio,"Cleveland Heights Recreation Center 1 Montecello Blvd.  Cleveland Heights, OH 44118",(216) 501-3063,Inst. David Pritts,41.5156983,-81.572648,ROOFTOP
+Dayton,Ohio,"Christian Life Center 3489 Little York Rd. Dayton, OH 45414",(937) 836-2149,Inst. Cindy Redolfi,39.86342,-84.211535,ROOFTOP
+Kirtland,Ohio,"7900 Euclid Chardon Road Kirtland, OH 44094",(216) 501-3063,Inst. David Pritts,41.582322,-81.36097199999999,ROOFTOP
+Streetsboro,Ohio,"Streetsboro Recreation Center 9184 St. Rt 43 Streetsboro, OH 44241",(440) 336-2833,PKJN Bob Williams,41.2392227,-81.3459405,APPROXIMATE
+Madison,Wisconsin,"University of Wisconsin Eagle Heights Community Center 611 Eagle Heights Madison, WI 53705",(281) 253-7944,Inst. Max Magee,43.08825969999999,-89.43648929999999,ROOFTOP
+Milwaukee,Wisconsin,"2810 N. Bremen St. Milwaukee, WI 53201",(414) 467-3613,Inst. Michael Monahan,43.06956659999999,-87.9001287,ROOFTOP
+"Williston, ND",Wisconsin,"NEW!!! 10 Main Street Williston, ND 58801",(612) 387-0393,Inst.Audrey Kalil,48.1436186,-103.6212938,RANGE_INTERPOLATED
+Wilmington,Delaware,"2601 Carpenter Station Rd #16 WIlmington, DE 19810",(302) 757-9789,SIKJN Sung Gu Yea,39.821839,-75.4642705,ROOFTOP
+Washington,District of columbia,605 Rhode Island Avenue NE Washigton DC 20019,(301) 801-4398,Inst. Russell Moore,38.9203348,-76.99769700000002,ROOFTOP
+Capitol Heights,Maryland,"7905 Central Ave Capitol Heights, MD 20743",(202) 437-2548,PKJN. Marlin Godfrey,38.8885836,-76.869467,ROOFTOP
+Dunkirk,Maryland,"10379 Southern Maryland Blvd. Dunkirk, MD 20754",(410) 286-0068,PKJN. Marlin Godfrey,38.720548,-76.6606157,RANGE_INTERPOLATED
+Landover,Maryland,"8001 Sheriff Rd Landover, MD 20785",(202) 437-2548,PKJN. Marlin Godfrey,38.9113901,-76.8672315,ROOFTOP
+N. Laurel,Maryland,"New School ! North Laurel Community Center 9411 Whiskey Botton Rd Laurel, MD 20723",(301) 509-2030,Inst. Darren Fulmore,39.1161362,-76.8361479,ROOFTOP
+Clinton,Massachusetts,"386 High St Clinton, MA 01510",(978) 706-1779,Inst. Kenneth Schalk,42.4225752,-71.6839306,ROOFTOP
+Saratoga Springs,New york,"54 Weibel Ave  Saratoga Springs, NY 12866",(518) 242-9968,Inst. Jason Tetu,43.0968744,-73.74485469999999,RANGE_INTERPOLATED
+Webster,New york,"396 Route 104 Ontario, NY 14519",(585) 216-2122,JDKJN Gary Evarts,43.2247422,-77.359948,ROOFTOP
+Williamson,New york,"4081 West Main Street Williamson, NY 14589",(315) 589-4066,JDKJN Gary Evarts,43.22391,-77.1868255,ROOFTOP
+Wolcott,New york,"11807 West Main Street Wolcott, NY 14590",(315) 594-8991,PKJN Joseph Burnett,43.2236012,-76.8230047,RANGE_INTERPOLATED
+Greensboro,North carolina,"N.C. A&T State University 1601 East Market Street Greensboro, NC 27411",,PKJN Steve Hurley,36.0726354,-79.7919754,APPROXIMATE
+Luke AFB,Arizona,"NEW!!! Luke AFB Bryant Fitness Center & Youth Center 14185 West Falcon Street Glendale, AZ 85309",(623) 337-0258,Inst. Angela Hoikka,33.5338846,-112.3599483,ROOFTOP
+Phoeniz,Arizona,"NEW!!! 126 W. Desert Hills Phoenix, AZ 85086",(623) 337-0258,Inst. Angela Hoikka,33.8442426,-112.077119,ROOFTOP
+Berkeley,California,"2438 Sacramento Street Berkeley, CA",(510) 540-8070,JDKJN Tom Brewer,37.8625611,-122.2814939,ROOFTOP
+DIXON,California,"201 SOUTH FIFTH ST DIXON, CA 95620",(530) 908-0756,Inst. Tiffany Bunn,38.444632,-121.81705,ROOFTOP
+Dublin,California,"4558 Dublin Blvd. Dublin, CA 94568",(925) 551-8200,JIKJN Seyd Saidi,37.7048401,-121.8811595,ROOFTOP
+El Dorado Hills,California,"2222 Francisco Blvd. El Dorado Hills, CA 95762",(530) 642-9031,PKJN Justin Painter,38.7101949,-121.0864841,ROOFTOP
+Gold Country,California,"127 Argall Way Nevada City, CA 95959",(530) 478-1412,JIKJN Tony Reyna,39.2522595,-121.0245511,RANGE_INTERPOLATED
+Half Moon Bay,California,"432- B Main St Half Moon Bay, CA 94019",(650) 726-4132,PKJN Paul Carmody,37.464039,-122.429332,ROOFTOP
+Huntington Beach,California,***Now Open *** Please call for directions,(661) 210-6837,JIKJN Gene Gause,33.6594835,-117.9988026,APPROXIMATE
+Lake Hughes,California,"17520 Lake Elizabeth Road Lake Hughes, CA 93532",(661) 202-8085,PKJN David Collins,34.6730407,-118.4397326,ROOFTOP
+Lincoln,California,"2010 First Street Lincoln, CA 95648",(916) 253-3801,Inst. John Santilena,38.8875157,-121.3144153,ROOFTOP
+Los Altos,California,"NEW LOCATION ! 347- 1 Street Los Altos, CA 94022",(650) 938-1553,JIKJN.David Hespelt,37.37664300000001,-122.11641,ROOFTOP
+Menlo Park,California,"Burgess Recreation Center 700 Alma Street Menlo Park, CA 94025",(650) 787-2226,PKJN. Kristin Quintana,37.4526658,-122.178043,ROOFTOP
+Millbrae,California,"30 Rollins Road Millbrae, CA 94030 (650) 692-KICK (5425)",,Inst. Dong Nguyen,37.5985468,-122.3871942,APPROXIMATE
+Pacifica,California,"1367 Linda Mar Center Pacifica, CA 94044",(650) 228-6714,Inst. Stacy Naegeli,37.5933405,-122.5040197,ROOFTOP
+Palmdale,California,"38218 6th Street East Palmdale, CA 93550",(661) 947-3992;(661) 273-3235,Inst. Antony Kinzell,34.5757207,-118.1173859,RANGE_INTERPOLATED
+Placerville,California,"5690 Motherlode Drive Placerville, CA 95667",,PKJN Justin Painter,38.6800037,-120.8693888,RANGE_INTERPOLATED
+Redwood City,California,"2135 Roosevelt Ave  Redwood City, CA 94061",(650) 368-2761,JDKJN Hafez Adle,37.4660599,-122.2410515,ROOFTOP
+Rohnert Park,California,"320 Professional Drive, #150 Rohnert Park, CA 94928",(707) 494-1151,PKJN Debra Taylor,38.3556738,-122.7067741,ROOFTOP
+Sacramento,California,"9725 B Folsom Blvd Sacramento, CA, 95827",(916) 308-6577,PKJN. Kymberly Wadsworth,38.5739981,-121.3351754,RANGE_INTERPOLATED
+San Francisco,California,"NEW Location! 25 Lake Street San Francisco, CA 94118  415-868-KICK",,PKJN. Leora Goren,37.7749295,-122.4194155,APPROXIMATE
+San Lorenzo,California,"17321 Hesperian Blvd. San Lorenzo, CA 94580",(510) 276-3834,JIKJN Seyd Saidi,37.6754299,-122.1245023,ROOFTOP
+San Mateo,California,"31 West 25th Avenue San Mateo, CA",(650) 570-5991,JIKJN Tim Sheehan,37.5437417,-122.3064776,ROOFTOP
+Santa Clarita,California,"27831 Smyth Drive Valencia, CA 91355",(661) 523-3455,Inst. Sydney Albert,34.4395613,-118.5663097,ROOFTOP
+Sherman Oaks,California,"New Location! Sherman Oaks East Valley Adult Center 5056 Van Nuys Boulevard Van Nuys, CA 91403",(818) 859-2670,Inst. Christa Wilson,34.1631891,-118.44838,ROOFTOP
+Visitacion Valley,California,"189 Leland Ave St San Fransico, CA",(415) 298-5360,Inst. Jorge Liberona,37.7123009,-122.40729,ROOFTOP
+Wheatland,California,"420 Front Street Wheatland, CA 95692",(530) 713-2379,PKJN Rick Cairnes,39.0105021,-121.4227833,ROOFTOP
+Woodland,California,"618 Cottonwood St. Woodland, CA",(530) 406-0618,PKJN. Justin Bunn,38.673463,-121.7935937,RANGE_INTERPOLATED
+Yuba City,California,"236 Bridge St. Yuba City, CA 95991",(530) 821-2275,PKJN Daniel Tejada,39.1373965,-121.6087783,ROOFTOP
+Fort Smith (River Valley),Arkansas,"3112 Cavanaugh Road Fort Smith, AR 72903",(479) 649-3542,PKJN Mike Gray,35.3112419,-94.4012928,RANGE_INTERPOLATED
+Ft. Smith,Arkansas,"University of Arkansas 5210 Grand Ave Ft Smith, AR 72913",(479) 883-6456,JDKJN Jerry Sallee,35.3821461,-94.3738577,ROOFTOP
+Greenwood,Arkansas,"1507 Highway 10 Greenwood, AR",(479) 806-4066,PKJN Tim Nixon,35.2156489,-94.25576629999999,APPROXIMATE
+Jacksonville,Arkansas,"210 Martin St Jacksonville, AR 72076",(501) 952-0423,PKJN Cleo Randall,34.8662005,-92.1101458,APPROXIMATE
+Mountainburg,Arkansas,"NEW! Baptist Church 220 Elm Street Mountainburg, AR 72946",(479) 883-6456,JDKJN Jerry Sallee,35.620613,-94.1715031,ROOFTOP
+Rogers,Arkansas,"4106 Honeysuckle Rogers, AR 72758",(479) 986-8000,PKJN Eric Spivey,36.2829494,-94.1274692,ROOFTOP
+Eglin AFB,Florida,"810 Wicker Road Eglin AFB, Fl. 32542",(850) 902-1415,PKJN Amado Garcia,30.4880241,-86.4959906,GEOMETRIC_CENTER
+Ft. Myers,Florida,"NEW lOCATION Villas Community Center 2306 Sunrise Blvd Fort Myers, FL 33907",,KJN.Frank Garza,26.5621044,-81.86274820000001,ROOFTOP
+Hurlburt Field,Florida,"Aderholt Fitness Center 259 Tully Street - Bldg 90517 Hurlburt Field, FL 32544",(850) 543-1986;(407) 443-3387,PKJN Amado Garcia,30.4230603,-86.7053961,ROOFTOP
+Palm Coast,Florida,"NEW!!! 160 Cypress Pt Pkwy Unit A 110 Palm Coast, FL 32164",(315) 729-2202,PKJN Tim Webster,29.54832609999999,-81.2281193,ROOFTOP
+Gretna,Louisiana,"835 Gretna Blvd Gretna, LA 70053",(504) 365-0111,Inst. Ryan Tardiff,29.89636,-90.04982,ROOFTOP
+Uptown New Orleans,Louisiana,"International School of New Orleans 1400 Camp Street New Orleans, LA 70103",(504) 236-8036,Inst. Quan Le,29.9362691,-90.0726236,ROOFTOP
+Xavier University,Louisiana,"NEW!!! Xavier University 1 Drexel Drive New Orleans, LA 70125",(806) 577-8006,Inst. Francisco Miramontes,29.963863,-90.107084,ROOFTOP
+Pryor,Oklahoma,"Pryor Creek Recreational Center 1111 Southeast 9th Street Pryor, OK 74361",(918) 344-9483,Inst. Michelle Brasher,36.2942055,-95.30378739999999,ROOFTOP
+Tahlequah,Oklahoma,"NEW location! 2051 Mahaney Ave. Tahlequah, OK 74464",(918) 457-9440,Inst. Trevor Crouch,35.888721,-94.97984,ROOFTOP
+Anderson,South carolina,"1107 North Murray Ave. Anderson, SC 29621",(864) 360-0174,JDKJN Daniel Middleton,34.512242,-82.65543799999999,ROOFTOP
+Clemson,South carolina,"1085 Old Clemson Hwy Seneca, SC 29672",(864) 653-0570,Inst. Sarah Gordinier,34.69688319999999,-82.87710120000001,ROOFTOP
+Florence,South carolina,"3015#C East Palmetto Street Florence, SC",(843) 665-2100,PKJN. Cliff Bailey,34.1973569,-79.707077,ROOFTOP
+Greenville,South carolina,"5314 Wade Hampton Blvd.  Taylors, SC 29687",(864) 517-8075,PKJN. Toan Pham,34.933851,-82.28086069999999,ROOFTOP
+Greenville,South carolina,"Carolina School of Massage 1313A Miller Rd. Greenville, SC 29607",(864) 860-0174,JDKJN Daniel Middleton,34.819153,-82.28493499999999,ROOFTOP
+Lake City,South carolina,"NEW!! 416 West Main Street Lake City, SC 29560",,Inst. Amber Dickerson,33.8781728,-79.7686021,RANGE_INTERPOLATED
+Abilene,Texas,"2401 S. 7th Abilene, TX 79605",(325) 692-0100,PKJN Phillip Sage,32.443481,-99.7514453,ROOFTOP
+ALVIN,Texas,"900 FM 1462 ALVIN, TX 77511",(281) 742-4292,Instr. Joseph Perkins,29.4016125,-95.246607,ROOFTOP
+AUSTIN (EISD),Texas,"AUSTIN EANES SCHOOL DISTRICT 601 Camp Craft Rd Austin, TX 78746",(937) 369-1136,Inst. Darryl Gholston,30.2779841,-97.81636669999999,ROOFTOP
+Austin (Oak Hill),Texas,"6001 W. Williams Cannon, Suite 307 Austin, TX 78749",(512) 899-8710,PKJN Timothy King,30.2280988,-97.86284959999999,ROOFTOP
+Baytown,Texas,"2827 North Alexander Baytown, TX 77520",(281) 428-4930,PKJN Tommy Nance,29.7526537,-94.94438459999999,ROOFTOP
+Boerne,Texas,"OPEN SOON ! 37131 IH 10 West Boerne, TX 78006",(210) 912-4300,inst. Kenneth Thibodeaux,29.79466409999999,-98.7319703,APPROXIMATE
+Brownsville,Texas,"1601 Alton Gloor Suite 110 Brownsville, TX 78521",(956) 372-1664,PKJN Raul Sosa III,25.9823647,-97.4867014,ROOFTOP
+Cinco Ranch,Texas,"Coming Soon in August 2017!  4747 FM 1463 Suite #900 Katy, Texas 77494",(713) 231-4632,Inst. Chris Pak,29.7388418,-95.7580048,APPROXIMATE
+Clear Lake,Texas,"15230 HWY 3 Webster, TX 77598",(281) 486-5425,SSKJN Barry Harmon,29.5656913,-95.1447216,ROOFTOP
+Katy,Texas,"4414 Cobalt Cross St. Katy, Texas 77493",(281) 615-3542,PKJN Ron Michael,29.8377326,-95.7779944,ROOFTOP
+Kingwood,Texas,"910 Russell Palmer Road Kingwood, TX 77339-1601",(281) 359-5425,SIKJN Richard Roper,30.0640153,-95.2268715,ROOFTOP
+Magnolia,Texas,"37937 FM 1774 Magnolia, TX 77355",(832) 934-1400,PKJN. Joe Flores,30.189868,-95.71906790000001,ROOFTOP
+Murphy (Dallas),Texas,"New Location Murphy Community Center 205 N Murphy Road Murphy, TX 75094",(972) 767-9062,Inst. Hong  Cho,33.016583,-96.613559,ROOFTOP
+Pearland,Texas,"2510 East Broadway Pearland, Texas 77581",(281) 997-3737,PKJN Alana Groneman,29.5525157,-95.2551276,RANGE_INTERPOLATED
+Prosper (Dallas),Texas,"114 W. Broadway Street Prosper, TX 75078 Dallas Metro Area",(469) 307-9940,Inst. Wendy Herrmann,33.2364694,-96.80278179999999,ROOFTOP
+Richmond,Texas,"1125 Crabb River Road Richmond, TX 77469",(832) 595-2299,Inst. Robert Kuemmel,29.5511454,-95.697699,ROOFTOP
+River Oaks (Houston),Texas,"Kuk Sool Won of River Oaks River Oaks Community Center 3600 Locke Lane Houston, TX 77027",(832) 738-6711,Instructor Ryan Green,29.7418155,-95.4347069,ROOFTOP
+San Antonio,Texas,"6812 Bandera Rd #109 San Antonio, TX 78238-3552",(210) 520-0432,JIKJN Daniel Jolly,29.4979371,-98.6236093,ROOFTOP
+San Antonio (Alamo Heights),Texas,"1149 Harry Wurzbach Rd. San Antonio, TX 78209-640 210-824-KICK(5425)",,Inst. Frankie Cade,29.4849531,-98.46585019999999,APPROXIMATE
+San Antonio (Walzem),Texas,"5530 Walzem Road San Antonio, TX 78218",(210) 599-8211,PKJN Lawson Plummer,29.5102815,-98.3792684,ROOFTOP
+San Marcos,Texas,"Coming soon in September 2017 1330 Aquarena Springs Dr. Suite 107 San Marcos, TX 78666",(512) 997-8052,Inst. Eric Morales,29.8832749,-97.9413941,APPROXIMATE
+The Woodlands East,Texas,"New Location!!! 26403 Oak Ridge Drive The Woodlands, TX 77380",(713) 937-7885,Inst. Todd Thurman,30.1447749,-95.4493639,ROOFTOP
+The Woodlands West,Texas,"32215 Tamina Road Magnolia, TX 77354",(281) 259-6333,JIKJN Joseph Foster,30.2097493,-95.5775839,ROOFTOP
+Tomball,Texas,"20295 F.M.2920 Rd. Tomball, TX 77377",(281) 255-4321,SIKJN Alex Suh,30.0791827,-95.73977590000001,ROOFTOP
