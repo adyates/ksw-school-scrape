@@ -6,7 +6,7 @@ import phonenumbers as libphone
 import requests
 
 
-SCHOOL_EXPORT_FILE = 'data/school_data.csv' 
+SCHOOL_EXPORT_FILE = 'data/school_data.csv'
 
 
 def pullUsaDirectoryInfo():
@@ -72,8 +72,10 @@ def exportCSV(school_list):
         for school in school_list:
             writer.writerow(school)
 
-
-if __name__ == '__main__':
+def fetchData():
     school_list = pullUsaDirectoryInfo()
     separatePhoneNumbers(school_list)
     exportCSV(school_list)
+
+if __name__ == '__main__':
+    fetchData()
