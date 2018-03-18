@@ -1,4 +1,5 @@
 import csv
+import json
 import time
 
 import requests
@@ -35,11 +36,10 @@ def exportGeoData(school_list):
 
 class LimitedApiManager(object):
 
-    def __init__(self, endpoint, cps, hardlimit, delay=1):
+    def __init__(self, endpoint, cps, delay=1):
         self.endpoint = endpoint
         self.cps = cps
         self.delay = delay
-        self.hardlimit = hardlimit
         self._req_count = 0
 
     def get(self, **kwargs):
@@ -48,31 +48,51 @@ class LimitedApiManager(object):
             time.sleep(self.delay)
             self._req_count = 0
         self._req_count += 1
-        return requests.get(self.endpoint, params=kwargs)
+        response = requests.get(self.endpoint, params=kwargs)
 
+        json = response.json()
+        status = json['status']
+        result = json['results']
+        if response.status_code != 200:
+            print 'HTTP Status %s returned: ' % response.status_code
+            return None
+        if status == 'OVER_QUERY_LIMIT':
+            # Force a retry of the query after a nap
+            self._req_count += self.cps
+            return self.get(**kwargs)
+
+        if status == 'ZERO_RESULTS':
+            print 'No results found for %s: \n---\n%s\n' % (kwargs, response.json())
+            return None
+        if len(result) != 1:
+            print 'Found %s results for %s' % (len(result), kwargs)
+            return None
+        return result
 
 def loadSchoolData():
 
-    geocode_api = LimitedApiManager(GOOGLE_GEOCODE_ENDPOINT, 5, 1)
+    geocode_api = LimitedApiManager(GOOGLE_GEOCODE_ENDPOINT, 5, 5)
 
     with open(fetch.SCHOOL_EXPORT_FILE, 'rb') as csv_in:
         school_data = csv.DictReader(csv_in)
 
         school_list = []  # Save each row for later re-write
         for item in school_data:
-            def _handleResponse(response):
-                json = response.json()
-                result = json['results']
-                if not result or (response.status_code != 200) or len(result) != 1:
+            def _handleResponse(result):
+                if not result:
                     return None
                 geometry = result[0]['geometry']
                 return geometry
 
             # Fetch the address first.  If it fails, switch to city+state
+            print 'Processing %s' % item['Address']
             geodata = (
                 item['Address'] and _handleResponse(geocode_api.get(address=item['Address'])) or
                 _handleResponse(geocode_api.get(
                     address=('%s, %s' % (item['City'], item['Region'])))))
+            if not geodata:
+                print 'Unable to find geodata for:\n%s' % json.dumps(item, indent=2)
+                continue
             location = geodata['location']
 
             item.update({
