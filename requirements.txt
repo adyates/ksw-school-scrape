@@ -1,4 +1,11 @@
+# Scraping and processing data
 beautifulsoup4
+requests
 lxml
 phonenumbers
-requests
+
+
+# Jupyter and related
+jupyter
+ipywidgets
+ipyleaflet
