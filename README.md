@@ -1,13 +1,35 @@
 # Hoh Gwuhn
 
 ## Short version
-Script to scrape, standardize, and export the school owner data off of the 
+Script to scrape, standardize, and export the school owner data off of the
 [KSW](www.kuksoolwon.com/site/schools) website for later mashup.
 
 If you are an intrepid person planning on using this, re-run locally, using any noted API keys.
 
 
+## Setup
+
+This project requires Python 2.7+.
+
+Run the following to start the notebook properly:
+```
+pip install -r requirements.txt
+jupyter nbextension enable --py --sys-prefix ipyleaflet
+jupyter notebook
+```
+
+For geocoding the addresses, this project also uses the Google Maps Platform Geocoding API.
+Which means two things:
+- You need to have a developer account for GCP setup with a Geocoding API
+- You need to have billing enabled, as this will cost some amount of money
+
+You will also need to set `GOOGLE_GEOCODE_API_KEY` in your environment to a valid Geocoding API key.
+
+If you only want to visualize the data present or re-scrape the website, the API key is not needed.
+
+
 ## Long version
+
 Part of a project to determine, from a given city, what the nearest school location should be
 based on geolocating the current schools.  Since parts of the data website seems handcoded /
 unstructured, given some of the wonky formatting issues and the lack of real Javascript on the

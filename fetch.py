@@ -30,8 +30,11 @@ def pullUsaDirectoryInfo():
                     'region': ksw_region.strip(),
                     'city': section.select_one('div.city').get_text().strip(),
                     # Instructors seem to be able to hand-edit this section
-                    'address': re.sub(r'\r?\n', ' ', section.select_one('div.contact').get_text()
-                        ).encode('ascii', 'ignore').strip(),
+                    'address': re.sub(
+                        r'\r?\n',
+                        ' ',
+                        section.select_one('div.contact').get_text()
+                    ).encode('ascii', 'ignore').strip(),
                     'phone_numbers': [],
                     'instructor': section.select_one('div.instructor').get_text().strip()
                 })
@@ -56,9 +59,12 @@ def separatePhoneNumbers(school_list):
 
 def exportCSV(school_list):
     with open(SCHOOL_EXPORT_FILE, 'wb') as csvout:
-        writer = csv.DictWriter(csvout, [
+        writer = csv.DictWriter(
+            csvout,
+            [
                 'city', 'region', 'address', 'phone_numbers', 'instructor'
-            ], lineterminator='\n')
+            ],
+            lineterminator='\n')
 
         header = {
             'region': 'Region',
