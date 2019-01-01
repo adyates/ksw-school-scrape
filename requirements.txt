@@ -1,11 +1,14 @@
 # Scraping and processing data
 beautifulsoup4
+googlemaps
 requests
 lxml
 phonenumbers
-
 
 # Jupyter and related
 jupyter
 ipywidgets
 ipyleaflet
+
+# Development needs
+pylint
