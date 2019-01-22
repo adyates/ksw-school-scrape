@@ -10,5 +10,8 @@ jupyter
 ipywidgets
 ipyleaflet
 
+# Google Cloud
+google-cloud-storage
+
 # Development needs
 pylint

@@ -1,12 +1,22 @@
+"""Fetches school data from the official WKSA website via web scraping with BS4."""
+
 import csv
+from datetime import datetime
+import io
 import re
 
 from bs4 import BeautifulSoup
+from google.cloud import storage
 import phonenumbers as libphone
 import requests
 
 
+GCLOUD_EXPORT_BUCKET = 'pandelyon-hoh-gwuhn'
 SCHOOL_EXPORT_FILE = 'data/school_data.csv'
+
+
+def isDirectRun():
+    return __name__ == '__main__'
 
 
 def pullUsaDirectoryInfo():
@@ -14,13 +24,13 @@ def pullUsaDirectoryInfo():
     KSW_REGIONS = 4
 
     school_list = []
-    for geo_id in xrange(1, KSW_REGIONS + 1):
+    for geo_id in range(1, KSW_REGIONS + 1):
         r = requests.post(KSW_DIRECTORY_PAGE, data={'geo_id': geo_id})
         usa_page = BeautifulSoup(r.text, 'lxml')
         subpage = usa_page.select('div.schools_content > div')
 
         ksw_region = ''  # For the US, this is the state as displayed on the leftmost column
-        print 'Found %s schools for US Geo ID %s' % (len(subpage), geo_id)
+        print('Found %s schools for US Geo ID %s' % (len(subpage), geo_id))
         for section in subpage:
             # Determine if this is a region header or a school
             if 'region_name' in section['class']:
@@ -30,11 +40,11 @@ def pullUsaDirectoryInfo():
                     'region': ksw_region.strip(),
                     'city': section.select_one('div.city').get_text().strip(),
                     # Instructors seem to be able to hand-edit this section
-                    'address': re.sub(
+                    'address': str(re.sub(
                         r'\r?\n',
                         ' ',
                         section.select_one('div.contact').get_text()
-                    ).encode('ascii', 'ignore').strip(),
+                    ).strip()),
                     'phone_numbers': [],
                     'instructor': section.select_one('div.instructor').get_text().strip()
                 })
@@ -44,7 +54,8 @@ def pullUsaDirectoryInfo():
 def separatePhoneNumbers(school_list):
     for school in school_list:
         phone_index_min = len(school['address'])
-        for match in libphone.PhoneNumberMatcher(school['address'], 'US'):
+        school_address = str(school['address'])
+        for match in libphone.PhoneNumberMatcher(school_address, 'US'):
             school['phone_numbers'].append(
                 str(libphone.format_number(match.number, libphone.PhoneNumberFormat.NATIONAL)))
             phone_index_min = min(phone_index_min, match.start)
@@ -57,8 +68,12 @@ def separatePhoneNumbers(school_list):
         school['address'] = school['address'][:phone_index_min].strip()
 
 
-def exportCSV(school_list):
-    with open(SCHOOL_EXPORT_FILE, 'wb') as csvout:
+def exportCSV(school_list, scrape_region='USA'):
+    # Write the file locally or buffer for Cloud upload
+
+    file_out = open(SCHOOL_EXPORT_FILE, 'w') if isDirectRun() else io.StringIO()
+
+    with file_out as csvout:
         writer = csv.DictWriter(
             csvout,
             [
@@ -78,10 +93,21 @@ def exportCSV(school_list):
         for school in school_list:
             writer.writerow(school)
 
+        if not isDirectRun():
+            # Save to GCS
+            client = storage.Client()
+            bucket = client.get_bucket(GCLOUD_EXPORT_BUCKET)
+
+            blob = bucket.blob('%s/%s' % (scrape_region, datetime.today().strftime('%Y-%m-%d')))
+            blob.upload_from_filename(SCHOOL_EXPORT_FILE)
+
+
 def fetchData():
+    """Fetch all the data from the KSW website."""
     school_list = pullUsaDirectoryInfo()
     separatePhoneNumbers(school_list)
     exportCSV(school_list)
 
-if __name__ == '__main__':
+
+if isDirectRun():
     fetchData()

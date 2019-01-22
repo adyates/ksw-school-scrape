@@ -1,8 +1,8 @@
 import csv
-import urllib2
+from urllib.parse import quote
 import webbrowser
 
-import geocoder
+import geocoder_googs as geocoder
 
 GOOGLE_STATIC_MAPS_ENDPOINT = (
     'https://maps.googleapis.com/maps/api/staticmap?size=1280x720&markers=')
@@ -16,7 +16,7 @@ GOOGLE_STATIC_MAPS_ENDPOINT = (
 #        1 - Decimal
 #        7 - Max number of digits used by fractional part (Est. based on points used)
 MAX_EST_MARKER_COUNT = (2048 - len(GOOGLE_STATIC_MAPS_ENDPOINT)) / (
-    len(urllib2.quote(',|')) + 2 * (1 + 3 + 1 + 7))
+    len(quote(',|')) + 2 * (1 + 3 + 1 + 7))
 
 
 def exportMapsUrls():

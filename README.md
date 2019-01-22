@@ -9,7 +9,7 @@ If you are an intrepid person planning on using this, re-run locally, using any 
 
 ## Setup
 
-This project requires Python 2.7+.
+This project requires Python 3, and is developed against 3.7.1+.
 
 Run the following to start the notebook properly:
 ```
