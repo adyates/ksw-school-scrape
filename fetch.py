@@ -6,12 +6,11 @@ import io
 import re
 
 from bs4 import BeautifulSoup
-from google.cloud import storage
 import phonenumbers as libphone
 import requests
 
+import gcs
 
-GCLOUD_EXPORT_BUCKET = 'pandelyon-hoh-gwuhn'
 SCHOOL_EXPORT_FILE = 'data/school_data.csv'
 
 
@@ -95,10 +94,10 @@ def exportCSV(school_list, scrape_region='USA'):
 
         if not isDirectRun():
             # Save to GCS
-            client = storage.Client()
-            bucket = client.get_bucket(GCLOUD_EXPORT_BUCKET)
 
-            blob = bucket.blob('%s/%s' % (scrape_region, datetime.today().strftime('%Y-%m-%d')))
+            blob = gcs.getFetchBucket().blob(
+                '%s/%s' % (scrape_region, datetime.today().strftime('%Y-%m-%d'))
+            )
             blob.upload_from_filename(SCHOOL_EXPORT_FILE)
 
 

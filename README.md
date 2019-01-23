@@ -1,4 +1,4 @@
-# Hoh Gwuhn
+# 호권
 
 ## Short version
 Script to scrape, standardize, and export the school owner data off of the
