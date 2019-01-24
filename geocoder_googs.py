@@ -1,4 +1,11 @@
-""""Takes a file of scraped addresses and geocodes them.  Uses the Google Maps Geocoding API."""
+""""Takes a file of scraped addresses and geocodes them, saving the result to a file.
+
+When saving to local disk, uses 'data/school_geodata.csv'.
+
+When saving to GCS, uses the same folder/file path as fetch.py
+
+Uses the Google Maps Geocoding API.
+"""
 
 import csv
 import io

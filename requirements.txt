@@ -11,6 +11,7 @@ ipywidgets
 ipyleaflet
 
 # Google Cloud
+google-cloud-firestore
 google-cloud-storage
 
 # Development needs
