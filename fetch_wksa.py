@@ -162,6 +162,35 @@ def exportCSV(school_list, scrape_region='USA'):
             )
             blob.upload_from_filename(SCHOOL_EXPORT_FILE)
 
+def handleHankuk(wksa_schools):
+    """Korean schools are formatted differently and needs some adjustment before geocoding."""
+    for school in wksa_schools:
+        if school['country_code'] != 'KR':
+            # School must be Korea
+            continue
+
+        # The 4th column has the region, but may contain multiple cities for a region
+        city_set = re.sub(r'\s[/|]\s', ' ', school['region']).split()
+        if len(city_set) > 1:
+            # Figure out which city we're in by using the address
+            for region in city_set:
+                if region in school['address']:
+                    school['region'] = region
+            # If this never matches, then the City is the Region. Fix for address and region
+            # e.g. Dong-Gu Daegu
+            if school['region'] not in school['address']:
+                school['address'] += ' %s' % school['city']
+
+                # Region is generally last in KR WKSA addresses
+                school['region'] = school['city'].split()[-1]
+
+            # Lastly, if the last token in the address is the city, the Instructor is
+            # listed as the City. Replace it with token before the city in the address.
+            if school['region'] == school['address'].split()[-1]:
+                new_boundary = school['address'].split()[-2]
+                school['address'] += ' %s' % school['city']
+                school['city'] = new_boundary
+
 
 def fetchData():
     """Fetch all the data from the KSW website."""
@@ -171,6 +200,7 @@ def fetchData():
         handleCountry = SPECIAL_COUNTRY_HANDLING.get(country['ISO-2'], pullGenericDirectoryInfo)
         wksa_schools.extend(handleCountry(country['link'], country['name'], country['ISO-2']))
     separatePhoneNumbers(wksa_schools)
+    handleHankuk(wksa_schools)
     exportCSV(wksa_schools)
     print('Exported %s WKSA schools' % len(wksa_schools))
 
