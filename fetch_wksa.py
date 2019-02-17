@@ -125,9 +125,8 @@ def separatePhoneNumbers(school_list):
         school['address'] = school['address'][:phone_index_min].strip()
 
 
-def exportCSV(school_list, scrape_region='USA'):
+def exportCSV(school_list, scrape_region='WORLD'):
     """Write the file locally or buffer for GCS upload."""
-
     file_out = open(SCHOOL_EXPORT_FILE, 'w') if isDirectRun() else io.StringIO()
 
     with file_out as csvout:
