@@ -3,7 +3,7 @@ from datetime import datetime
 
 import geocoder_googs
 import geoetl
-import fetch
+import fetch_wksa
 
 
 def fetchData(data=None, context=None):
@@ -12,7 +12,7 @@ def fetchData(data=None, context=None):
     Deploy with:
         gcloud functions deploy fetchData --runtime python37 --trigger-topic hoh-gwuhn-scrape --memory 128
     """
-    fetch.fetchData()
+    fetch_wksa.fetchData()
     print("Data fetch at %s" % datetime.today().strftime('%Y-%m-%d'))
 
 
