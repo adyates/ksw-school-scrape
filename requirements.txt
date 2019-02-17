@@ -1,5 +1,6 @@
 # Scraping and processing data
 beautifulsoup4
+country_converter
 googlemaps
 requests
 lxml
