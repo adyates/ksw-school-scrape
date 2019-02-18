@@ -183,12 +183,19 @@ def handleHankuk(wksa_schools):
                 # Region is generally last in KR WKSA addresses
                 school['region'] = school['city'].split()[-1]
 
-            # Lastly, if the last token in the address is the city, the Instructor is
-            # listed as the City. Replace it with token before the city in the address.
+            # Split address as KR addresses list the instructor last, throwing off geocoding
+            tokenized_address = school['address'].split()
+
             if school['region'] == school['address'].split()[-1]:
+                # If the last token in the address is the city, the Instructor is set as the City.
+                # Replace it with token before the city in the address.
                 new_boundary = school['address'].split()[-2]
                 school['address'] += ' %s' % school['city']
                 school['city'] = new_boundary
+            elif school['region'] == tokenized_address[-3]:
+                # The last two tokens are the Instructor.  Cut and replace to Instructor column
+                school['instructor'] = tokenized_address[-2:]
+                school['address'] = ' '.join(tokenized_address[:-2])
 
 
 def fetchData():
