@@ -25,7 +25,8 @@ def exportGeoData(school_df, file_name=None):
     """Write the geodata file from the dataframe, either to GCS or locally."""
     file_out = io.StringIO() if file_name else open(SCHOOL_GEODATA_FILE, 'w')
 
-    school_df.to_csv(file_out)
+    # Write the CSV, but remove the pandas indices from the output
+    school_df.to_csv(file_out, index=False)
 
     if file_name:
         # Save to GCS
