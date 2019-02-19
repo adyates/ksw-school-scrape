@@ -48,8 +48,14 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            python manage.py test
+            python -m pytest --cov=hohgwuhn test/ --cov-report term --cov-report html --cov-report xml:test-reports/coverage.xml
+
+      - store_test_results:
+          path: test-reports
+
+      - store_artifacts:
+          path: htmlcov
+          destination: htmlcov
 
       - store_artifacts:
           path: test-reports
-          destination: test-reports

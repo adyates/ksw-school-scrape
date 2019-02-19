@@ -1,5 +1,7 @@
 # 호권
 
+[![CircleCI](https://circleci.com/gh/adyates/ksw-school-scrape/tree/master.svg?style=svg)](https://circleci.com/gh/adyates/ksw-school-scrape/tree/master)
+
 ## Short version
 Script to scrape, standardize, and export the school owner data off of the
 [KSW](www.kuksoolwon.com/site/schools) website for later mashup.
