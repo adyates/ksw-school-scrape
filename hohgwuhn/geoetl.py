@@ -27,8 +27,8 @@ from time import gmtime, strftime
 
 from google.cloud import firestore
 
-import gcs
-import geocoder_googs
+from . import gcs
+from . import geocoder_googs
 
 
 FIRESTORE = firestore.Client()

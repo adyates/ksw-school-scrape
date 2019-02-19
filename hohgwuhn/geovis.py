@@ -2,7 +2,7 @@ import csv
 from urllib.parse import quote
 import webbrowser
 
-import geocoder_googs as geocoder
+from . import geocoder_googs as geocoder
 
 GOOGLE_STATIC_MAPS_ENDPOINT = (
     'https://maps.googleapis.com/maps/api/staticmap?size=1280x720&markers=')

@@ -4,3 +4,8 @@
 
 # Emacs temp files
 *~
+
+# Test files and similar
+.coverage
+htmlcov/
+.pytest_cache/

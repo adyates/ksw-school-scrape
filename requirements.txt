@@ -17,3 +17,5 @@ google-cloud-storage
 
 # Development needs
 pylint
+pytest
+pytest-cov

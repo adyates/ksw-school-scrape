@@ -14,8 +14,8 @@ import os
 import googlemaps
 import pandas as pd
 
-import fetch_wksa as fetch
-import gcs
+from . import fetch_wksa as fetch
+from . import gcs
 
 
 SCHOOL_GEODATA_FILE = 'data/school_geodata.csv'

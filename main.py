@@ -1,12 +1,14 @@
 """Wrapper file for use with Google Cloud Functions."""
+# pylint: disable=line-too-long
 from datetime import datetime
 
-import geocoder_googs
-import geoetl
-import fetch_wksa
+from hohgwuhn import geocoder_googs
+from hohgwuhn import geoetl
+from hohgwuhn import fetch_wksa
 
 
 def fetchData(data=None, context=None):
+    # pylint: disable=unused-argument
     """Wrapper around fetch.fetchData, intended to be called by scheduled cron only.
 
     Deploy with:
@@ -17,6 +19,7 @@ def fetchData(data=None, context=None):
 
 
 def geocodeFile(data=None, context=None):
+    # pylint: disable=unused-argument
     """Wrapper around geocoder_googs.loadSchoolData, intended to be called as GCF via GCS event.
 
     Deploy with:
@@ -27,6 +30,7 @@ def geocodeFile(data=None, context=None):
 
 
 def geoETL(data=None, context=None):
+    # pylint: disable=unused-argument
     """Wrapper around geoetl.loadRegionFile, intended to be called as GCF via GCS event.
 
     Deploy with:

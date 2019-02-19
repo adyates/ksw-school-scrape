@@ -11,7 +11,7 @@ import country_converter as coco
 import phonenumbers as libphone
 import requests
 
-import gcs
+from . import gcs
 
 
 SCHOOL_EXPORT_FILE = 'data/school_data.csv'
@@ -175,27 +175,38 @@ def handleHankuk(wksa_schools):
             for region in city_set:
                 if region in school['address']:
                     school['region'] = region
-            # If this never matches, then the City is the Region. Fix for address and region
-            # e.g. Dong-Gu Daegu
-            if school['region'] not in school['address']:
-                school['address'] += ' %s' % school['city']
 
-                # Region is generally last in KR WKSA addresses
-                school['region'] = school['city'].split()[-1]
+        # Split address as KR addresses list the instructor last, throwing off geocoding
+        tokenized_address = school['address'].split()
+        print(tokenized_address)
+        if school['region'] == school['address'].split()[-1]:
+            # If the last token in the address is the City, the City column is the Instructor.
+            # Replace it with token before the city in the address (should be district).
+            new_boundary = school['address'].split()[-2]
+            school['address'] += ' %s' % school['city']
 
-            # Split address as KR addresses list the instructor last, throwing off geocoding
+            # Keep the Instructor and retokenize the address
+            school['instructor'] = school['city']
+            school['city'] = new_boundary
             tokenized_address = school['address'].split()
 
-            if school['region'] == school['address'].split()[-1]:
-                # If the last token in the address is the city, the Instructor is set as the City.
-                # Replace it with token before the city in the address.
-                new_boundary = school['address'].split()[-2]
-                school['address'] += ' %s' % school['city']
-                school['city'] = new_boundary
-            elif school['region'] == tokenized_address[-3]:
-                # The last two tokens are the Instructor.  Cut and replace to Instructor column
-                school['instructor'] = tokenized_address[-2:]
-                school['address'] = ' '.join(tokenized_address[:-2])
+        elif school['region'] not in school['address']:
+            # If region isn't in the address, then the City is in the Region. Fix all 3
+            # e.g. Dong-Gu Daegu
+            school['address'] += ' %s' % school['city']
+
+            # Region is generally last in KR WKSA addresses
+            school['region'] = school['city'].split()[-1]
+
+            # Retokenize the address and set the new city
+            tokenized_address = school['address'].split()
+            new_boundary = school['address'].split()[-2]
+            school['city'] = new_boundary
+
+        if school['region'] == tokenized_address[-3]:
+            # The last two tokens are the Instructor.  Cut and replace to Instructor column
+            school['instructor'] = ' '.join(tokenized_address[-2:])
+            school['address'] = ' '.join(tokenized_address[:-2])
 
 
 def fetchData():
