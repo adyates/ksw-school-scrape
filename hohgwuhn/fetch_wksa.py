@@ -159,7 +159,8 @@ def exportCSV(school_list, scrape_region='WORLD'):
             blob = gcs.getFetchBucket().blob(
                 '%s/%s' % (scrape_region, datetime.today().strftime('%Y-%m-%d'))
             )
-            blob.upload_from_filename(SCHOOL_EXPORT_FILE)
+            blob.upload_from_string(file_out.getvalue(), content_type='text/csv')
+
 
 def handleHankuk(wksa_schools):
     """Korean schools are formatted differently and needs some adjustment before geocoding."""
