@@ -1,4 +1,4 @@
-# Scraping and processing data
+## Scraping and processing data
 beautifulsoup4
 country_converter
 googlemaps
@@ -6,16 +6,16 @@ requests
 lxml
 phonenumbers
 
-# Jupyter and related
+## Jupyter and related
 jupyter
 ipywidgets
 ipyleaflet
 
-# Google Cloud
+## Google Cloud
 google-cloud-firestore
 google-cloud-storage
 
-# Development needs
+## Development needs
 pylint
 pytest
 pytest-cov
