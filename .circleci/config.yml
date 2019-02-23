@@ -75,9 +75,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json
           echo $GCLOUD_SERVICE_KEY_FILE > /tmp/credentials.json
-          gcloud auth activate-service-account ${GOOGLE_ACCOUNT_EMAIL} --key-file=/tmp/credentials.json
-          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud functions deploy fetchData --runtime python37 --trigger-topic hoh-gwuhn-scrape --memory 128
 
   deploy_geocode:
@@ -87,9 +86,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json
           echo $GCLOUD_SERVICE_KEY_FILE > /tmp/credentials.json
-          gcloud auth activate-service-account ${GOOGLE_ACCOUNT_EMAIL} --key-file=/tmp/credentials.json
-          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud functions deploy geocodeFile --runtime python37 --trigger-resource pandelyon-hoh-gwuhn-fetch --memory 128 --trigger-event google.storage.object.finalize --timeout 540
 
   deploy_etl:
@@ -99,9 +97,8 @@ jobs:
     steps:
       - checkout
       - run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=/tmp/credentials.json
           echo $GCLOUD_SERVICE_KEY_FILE > /tmp/credentials.json
-          gcloud auth activate-service-account ${GOOGLE_ACCOUNT_EMAIL} --key-file=/tmp/credentials.json
-          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud functions deploy geoETL --runtime python37 --trigger-resource pandelyon-hoh-gwuhn-geocode --memory 128 --trigger-event google.storage.object.finalize --timeout 540
 
 workflows:
