@@ -17,12 +17,22 @@
 node_modules
 #!include:.gitignore
 
-# Unnecessary files
+# Repo files
 README.md
 LICENSE
+
+# System files
 .DS_Store
-activate
 .env
+activate
+
+# Development
+data/
+test/
+venv/
+.pylintrc
+.cicleci/
+pytest.ini
 
 # Visualizations
 *.ipynb
