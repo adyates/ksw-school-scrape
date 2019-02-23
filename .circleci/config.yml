@@ -39,7 +39,7 @@ jobs:
             . venv/bin/activate
             ls -la .
             ls -la ./venv
-            ls -la ./venv/lib/python3.7/site-packages/
+            ls -la ./venv/lib/
             pip install -r requirements.txt
       - save_cache:
           paths:
