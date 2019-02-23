@@ -37,9 +37,6 @@ jobs:
             apt-get -y install python3-venv
             python3 -m venv venv
             . venv/bin/activate
-            ls -la .
-            ls -la ./venv
-            ls -la ./venv/lib/python3.5/site-packages/
             pip install -r requirements.txt
       - save_cache:
           paths:
@@ -56,9 +53,6 @@ jobs:
           environment:
               GOOGLE_APPLICATION_CREDENTIALS: /tmp/credentials.json
           command: |
-            ls -la ./venv/lib/python3.5/site-packages/
-            ls -la ./venv/bin
-
             . venv/bin/activate
             python -m pytest --cov=hohgwuhn test/ --cov-report term --cov-report html \
               --cov-report xml:test-reports/coverage.xml
