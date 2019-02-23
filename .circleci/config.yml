@@ -8,7 +8,7 @@ jobs:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
-      - image: circleci/python:3.7.2
+      - image: google/cloud-sdk
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -21,7 +21,8 @@ jobs:
       - checkout
 
       - run: |
-          echo $GCLOUD_SERVICE_KEY > $HOME/gcloud.json
+          echo $GCLOUD_SERVICE_KEY_FILE | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
 
       # Download and cache dependencies
       - restore_cache:
@@ -50,7 +51,6 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            export GOOGLE_APPLICATION_CREDENTIALS=$HOME/gcloud.json
             python -m pytest --cov=hohgwuhn test/ --cov-report term --cov-report html \
               --cov-report xml:test-reports/coverage.xml
 
