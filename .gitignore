@@ -9,3 +9,6 @@
 .coverage
 htmlcov/
 .pytest_cache/
+
+# Virtual environment
+.env
