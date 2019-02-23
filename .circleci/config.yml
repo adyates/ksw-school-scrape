@@ -49,10 +49,10 @@ jobs:
       # other common Python testing frameworks include pytest and nose
       # https://pytest.org
       # https://nose.readthedocs.io
-      - environment:
-          GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
       - run:
           name: run tests
+          environment:
+              GOOGLE_APPLICATION_CREDENTIALS: $HOME/credentials.json
           command: |
             . venv/bin/activate
             env
