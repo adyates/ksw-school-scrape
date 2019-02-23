@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # specify the version you desire here
       # use `-browsers` prefix for selenium tests, e.g. `3.6.1-browsers`
@@ -63,3 +63,61 @@ jobs:
 
       - store_artifacts:
           path: test-reports
+
+  ##### Cloud Function deploys
+  deploy_fetch:
+    docker:
+      - image: google/cloud-sdk
+    working_directory: ~/ksw-school-scrape
+    steps:
+      - checkout
+      - run: |
+          echo $GOOGLE_APPLICATION_CREDENTIALS | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud functions deploy fetchData --runtime python37 --trigger-topic hoh-gwuhn-scrape --memory 128
+
+  deploy_geocode:
+    docker:
+      - image: google/cloud-sdk
+    working_directory: ~/ksw-school-scrape
+    steps:
+      - checkout
+      - run: |
+          echo $GOOGLE_APPLICATION_CREDENTIALS | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud functions deploy geocodeFile --runtime python37 --trigger-resource pandelyon-hoh-gwuhn-fetch --memory 128 --trigger-event google.storage.object.finalize --timeout 540
+
+  deploy_etl:
+    docker:
+      - image: google/cloud-sdk
+    working_directory: ~/ksw-school-scrape
+    steps:
+      - checkout
+      - run: |
+          echo $GOOGLE_APPLICATION_CREDENTIALS | gcloud auth activate-service-account --key-file=-
+          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud functions deploy geoETL --runtime python37 --trigger-resource pandelyon-hoh-gwuhn-geocode --memory 128 --trigger-event google.storage.object.finalize --timeout 540
+
+workflows:
+  version: 2
+  test_and_deploy:
+    jobs:
+      - test
+      - deploy_fetch:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+      - deploy_geocode:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
+      - deploy_etl:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
