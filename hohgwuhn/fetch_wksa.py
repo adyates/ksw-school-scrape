@@ -14,7 +14,7 @@ import requests
 from . import gcs
 
 
-SCHOOL_EXPORT_FILE = 'data/school_data.csv'
+SCHOOL_EXPORT_FILE = '../data/school_data.csv'
 
 
 def isDirectRun():
@@ -179,7 +179,6 @@ def handleHankuk(wksa_schools):
 
         # Split address as KR addresses list the instructor last, throwing off geocoding
         tokenized_address = school['address'].split()
-        print(tokenized_address)
         if school['region'] == school['address'].split()[-1]:
             # If the last token in the address is the City, the City column is the Instructor.
             # Replace it with token before the city in the address (should be district).
