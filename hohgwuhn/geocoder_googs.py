@@ -18,7 +18,7 @@ from . import fetch_wksa as fetch
 from . import gcs
 
 
-SCHOOL_GEODATA_FILE = 'data/school_geodata.csv'
+SCHOOL_GEODATA_FILE = '../data/school_geodata.csv'
 
 
 def exportGeoData(school_df, file_name=None):
@@ -41,14 +41,12 @@ class LimitedApiManager:
             queries_per_second=cps,
         )
 
-    def get(self, address, country):
+    def get(self, address, country_code):
         """Get the geocoding results for a given address."""
-        # Append the country to make isolate the search to the correct areas
-        search_address = ', '.join([address, country])
-
-        print('  Fetching %s' % search_address)
-        results = self.client.geocode(search_address)
-        print('  Found %s results for: %s' % (len(results), search_address))
+        # Filter by country code to isolate the search to the correct areas
+        print('  Fetching %s (%s)' % (address, country_code))
+        results = self.client.geocode(address=address, components={'country': country_code})
+        print('  Found %s %s results for: %s' % (len(results), country_code, address))
         return results
 
 
@@ -91,12 +89,12 @@ def loadSchoolData(file_name=None):
         print('Processing %s' % item['Address'])
         geodata = (
             item['Address'] and _handleResponse(
-                geocode_api.get(address=item['Address'], country=item['Country'])
+                geocode_api.get(address=item['Address'], country_code=item['Country Code'])
             ) or
             _handleResponse(
                 geocode_api.get(
                     address=('%s, %s' % (item['City'], item['Region'])),
-                    country=item['Country']
+                    country_code=item['Country Code']
                 ),
                 assure_address=False
             ))
