@@ -75,6 +75,7 @@ def loadCountryFile(file_name=None):
             'lon': item['Longitude'],
             'type': item['Geocode Type'],
             'google_address': item.get('Google Address', ''),
+            'website': item.get('Website', ''),
 
             # Scrape record data
             'country': country_name,
