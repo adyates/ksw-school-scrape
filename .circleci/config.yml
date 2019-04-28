@@ -54,7 +54,7 @@ jobs:
               GOOGLE_APPLICATION_CREDENTIALS: /tmp/credentials.json
           command: |
             . venv/bin/activate
-            ./runTests.sh
+            ./scripts/runTests.sh
 
       - store_test_results:
           path: test-reports
