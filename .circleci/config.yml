@@ -54,8 +54,7 @@ jobs:
               GOOGLE_APPLICATION_CREDENTIALS: /tmp/credentials.json
           command: |
             . venv/bin/activate
-            python -m pytest --cov=hohgwuhn test/ --cov-report term --cov-report html \
-              --cov-report xml:test-reports/coverage.xml
+            ./runTests.sh
 
       - store_test_results:
           path: test-reports

@@ -49,7 +49,31 @@ def kr_wksa_school_daegu():
     }
 
 
-class TestFetch:
+class TestSiteScrape:
+    """Test the ability to pull the list of schools from the WKSA site"""
+
+    def test_country_page_fetch(self):
+        """Verify we can still pull the countries WKSA operates in"""
+        countries = fetch.pullWksaCountryPages()
+        assert len(countries) > 20
+
+        for country in countries:
+            assert country['name']
+            assert country['link']
+            assert country['ISO-2']
+            if country['name'] == 'U.S.A.':
+                assert country['ISO-2'] == 'US'
+            if country['name'] == 'Korea':
+                assert country['ISO-2'] == 'KR'
+            if country['name'] == 'United Kingdom':
+                assert country['ISO-2'] == 'UK'
+
+    def test_skip_country(self):
+        """Sanity check for the no-op function"""
+        assert fetch.skipDirectoryInfo('some', 'args') == []
+
+
+class TestSchoolProcessing:
     """Test utility functions related to fetching data."""
 
     def test_us_phone_number_extracted(self, us_wksa_school):
