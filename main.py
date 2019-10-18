@@ -24,8 +24,8 @@ def fetchData(data=None, context=None):
 
     # Send email notification via SendGrid
     message = Mail(
-        from_email='alvin@pandelyon.com',
-        to_emails='alvn@pandelyon.com',
+        from_email='sys-notify+ksw@pandelyon.com',
+        to_emails='sys-notify@pandelyon.com',
         subject='[GCF] WKSA %s' % fetch_string,
         html_content="""Fetch Completed"""
     )
