@@ -1,6 +1,10 @@
 """Wrapper file for use with Google Cloud Functions."""
 # pylint: disable=line-too-long
 from datetime import datetime
+import os
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 from hohgwuhn import geocoder_googs
 from hohgwuhn import geoetl
@@ -15,8 +19,25 @@ def fetchData(data=None, context=None):
         gcloud functions deploy fetchData --runtime python37 --trigger-topic hoh-gwuhn-scrape --memory 128
     """
     fetch_wksa.fetchData()
-    print("Data fetch at %s" % datetime.today().strftime('%Y-%m-%d'))
+    fetch_string = "Data fetch at %s" % datetime.today().strftime('%Y-%m-%d')
+    print(fetch_string)
 
+    # Send email notification via SendGrid
+    message = Mail(
+        from_email='alvin@pandelyon.com',
+        to_emails='alvn@pandelyon.com',
+        subject='[GCF] WKSA %s' % fetch_string,
+        html_content="""Fetch Completed"""
+    )
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        # pylint: disable=E1101
+        print(e.message)
 
 def geocodeFile(data=None, context=None):
     # pylint: disable=unused-argument

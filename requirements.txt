@@ -15,6 +15,9 @@ ipyleaflet
 google-cloud-firestore
 google-cloud-storage
 
+## Emailing
+sendgrid
+
 ## Development needs
 pylint
 pytest
