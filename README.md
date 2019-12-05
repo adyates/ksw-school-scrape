@@ -15,8 +15,15 @@ This project requires Python 3, and is developed against 3.7.1+.
 
 Run the following to start the notebook properly:
 ```
+## For the baseline interactive map with completed files
 pip install -r requirements.txt
 jupyter nbextension enable --py --sys-prefix ipyleaflet
+
+## To enable the hohgwuhn library (assuming softlink for ./activate to env)
+source activate
+ipython kernel install --user --name=py3-hoh-gwuhn
+
+# Run the notebook
 jupyter notebook
 ```
 

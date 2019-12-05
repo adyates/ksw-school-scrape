@@ -59,6 +59,30 @@ def _loadGCSDataFile(file_name):
     return file_stream
 
 
+def _handleResponse(results, assure_address=True):
+    """Process the results from a Google Maps API callself.
+
+    Heuristically (by visual inspection), approximate addresses tend to resolve
+    better to buildings than geographic centers.  So if we are willing to relax
+    address constraints, then filter on that type of result when possible.
+    """
+    if len(results) != 1:
+        if assure_address:
+            return None
+        # Filter out only the approximate addresses, as they tend to be
+        # what we want
+        temp_results = [result for result in results if (
+            result['geometry']['location_type'] == 'APPROXIMATE'
+        )]
+
+        # But if none of these are approximate results
+        # (e.g. GEOGRAPHIC_CENTER), then ignore the filtering above
+        results = temp_results or results
+
+    # Pick the first one as we will trust Google's (assumed) relevance ordering
+    return results[0]
+
+
 def loadSchoolData(file_name=None):
     """Load school data from a file and process it."""
     data_file = _loadGCSDataFile(file_name) if file_name else open(fetch.SCHOOL_EXPORT_FILE, 'r')
@@ -67,17 +91,6 @@ def loadSchoolData(file_name=None):
     school_df = pd.read_csv(data_file, keep_default_na=False)
     school_list = []  # Save each row for later re-write
     for row_tuple in school_df.iterrows():
-        def _handleResponse(results, assure_address=True):
-            """Process the results"""
-            if len(results) != 1:
-                if assure_address:
-                    return None
-                # Filter out only the approximate addresses
-                results = [result for result in results if (
-                    result['geometry']['location_type'] == 'APPROXIMATE'
-                )]
-            return results[0]
-
         # Fetch the address first.  If it fails, switch to city+state
         geocode_data = {
             'lat': '',

@@ -8,6 +8,7 @@
 # Test files and similar
 .coverage
 htmlcov/
+test-reports/
 .pytest_cache/
 
 # Virtual environment
