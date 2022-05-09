@@ -77,7 +77,7 @@ jobs:
           echo $GCLOUD_SERVICE_KEY_FILE > /tmp/credentials.json
           gcloud auth activate-service-account --key-file=/tmp/credentials.json
           gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-          gcloud functions deploy fetchData --runtime python37 --trigger-topic hoh-gwuhn-scrape --memory 128 --timeout 540s
+          gcloud functions deploy fetchData --runtime python37 --trigger-topic hoh-gwuhn-scrape --memory 256 --timeout 540s
 
   deploy_geocode:
     docker:
