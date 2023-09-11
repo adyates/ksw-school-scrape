@@ -4,7 +4,7 @@
 
 ## Short version
 Script to scrape, standardize, and export the school owner data off of the
-[KSW](www.kuksoolwon.com/site/schools) website for later mashup.
+[KSW](https://www.kuksoolwon.com) website for later mashup.
 
 If you are an intrepid person planning on using this, re-run locally, using any noted API keys.
 
