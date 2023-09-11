@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "hohgwuhn"
+version = "0.1.0"
+description = "Scrap, standardize, and export school data from kuksoolwon.com"
+authors = ["Alvin Yates <mambothief@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+beautifulsoup4 = "^4.12.2"
+country-converter = "^1.0.0"
+googlemaps = "^4.10.0"
+requests = "^2.31.0"
+lxml = "^4.9.3"
+phonenumbers = "^8.13.16"
+jupyter = "^1.0.0"
+ipywidgets = "^8.0.7"
+ipyleaflet = "^0.17.3"
+google-cloud-firestore = "^2.11.1"
+google-cloud-storage = "^2.10.0"
+sendgrid = "^6.10.0"
+poethepoet = "^0.21.1"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pylint = "^2.17.4"
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+
+
+[tool.poe.tasks]
+requirements = "poetry export -f requirements.txt -o requirements.txt"
+test = "python -m pytest --cov=hohgwuhn test/ --cov-report term --cov-report html --cov-report xml:test-reports/coverage.xml"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

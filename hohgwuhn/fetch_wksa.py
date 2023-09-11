@@ -23,12 +23,12 @@ def isDirectRun():
 
 def pullWksaCountryPages():
     """Scrapes the WKSA schools website for the list of countries WKSA has locations in."""
-    KSW_SCHOOLS_PAGE = 'http://www.kuksoolwon.com/site/schools'
+    KSW_SCHOOLS_PAGE = 'http://www.kuksoolwon.com/school-directory/'
     r = requests.get(KSW_SCHOOLS_PAGE)
     schools_page = BeautifulSoup(r.text, 'lxml')
-    schools_navigation = schools_page.select('#submenu_schools > a')
+    schools_navigation = schools_page.select('#menu-schools-submenu > li > a')
 
-    print('Found %s countries for WKSA' % len(schools_navigation))
+    print('Found %s countries for WKSA e' % len(schools_navigation))
 
     ksw_countries = []
     for country_link in schools_navigation:
