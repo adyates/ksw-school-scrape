@@ -6,6 +6,8 @@
 Script to scrape, standardize, and export the school owner data off of the
 [KSW](https://www.kuksoolwon.com) website for later mashup.
 
+This repository is the primary generator of the data behind [Harvest](https://ksw.pandelyon.com/).
+
 If you are an intrepid person planning on using this, re-run locally, using any noted API keys.
 
 
